@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HotalManagementSystem.Models.Dish>
+
+@{
+    ViewData["Title"] = "ViewDish";
+}
+@{ 
+    int i = 0;
+}
+
+
+    <h4 class=" bg-dark text-center text-danger m-auto">View Dish</h4>
+    <table class="table table-light table-striped ">
+        <thead>
+            <tr class="text-danger">
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    Cook
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+                </>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-danger">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Cook.Name)
+                    </th>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                        @{
+                            i += int.Parse(item.Price);
+
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a class="btn btn-dark text-danger" asp-controller="Home" asp-action="UpdateDish" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn btn-danger text-dark" asp-controller="Home" asp-action="DeleteDish" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="bg-light  text-danger">
+        <h5> Total Dishes Price = @Model.Count()</h5>
+        <h5> Total Amount = Rs : @i</h5>
+    </div>
+

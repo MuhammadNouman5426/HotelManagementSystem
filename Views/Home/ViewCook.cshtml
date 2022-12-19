@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HotalManagementSystem.Models.Cook>
+
+@{
+    ViewData["Title"] = "ViewCook";
+}
+@{ 
+    int i = 0;
+}
+
+    <h4 class="text-center text-danger bg-dark">ViewCook</h4>
+    <table class="table table-light table-striped">
+        <thead>
+            <tr class="text-danger">
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JoiningDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-danger">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salary)
+                        @{
+                            i += int.Parse(item.Salary);
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JoiningDate)
+                    </td>
+                    <td>
+                        <a class="btn btn-dark text-danger" asp-controller="Home" asp-action="UpdateCook" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn btn-danger text-dark" asp-controller="Home" asp-action="DeleteCook" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class=" bg-light text-lg-left text-danger">
+        <h5> Total Dishes Price = @Model.Count()</h5>
+        <h5> Total Amount = Rs : @i</h5>
+    </div>

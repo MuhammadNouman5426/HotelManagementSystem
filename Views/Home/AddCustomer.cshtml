@@ -1,0 +1,43 @@
+﻿@model HotalManagementSystem.Models.Customer
+
+@{
+    ViewData["Title"] = "AddCustomer";
+}
+
+<div class="row text-center text-danger">
+    <div class="col-md-4 bg-dark m-auto ">
+<h5 class="text-center text-danger"><br /> Add Customer</h5>
+<hr class="bg-danger" />
+        <form asp-action="AddCustomer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalBill" class="control-label"></label>
+                <input asp-for="TotalBill" class="form-control" />
+                <span asp-validation-for="TotalBill" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentType" class="control-label"></label>
+                <input asp-for="PaymentType" class="form-control" />
+                <span asp-validation-for="PaymentType" class="text-danger"></span>
+            </div>
+            <div class="form-group bg-danger">
+                <input type="submit" value="Create" class="text-danger btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

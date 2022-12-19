@@ -1,0 +1,47 @@
+﻿@model HotalManagementSystem.Models.Cook
+
+@{
+    ViewData["Title"] = "DeleteCook";
+}
+
+<h5 class=" bg-dark text-danger col-md-5">Delete Cook Detail</h5>
+<div class=" bg-light col-md-5">
+    <hr class="bg-danger" />
+    <dl class="row text-danger">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteCook">
+        <input type="submit" value="Delete" class="text-dark btn btn-danger" />
+    </form>
+</div>
